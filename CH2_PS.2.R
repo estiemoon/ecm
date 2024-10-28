@@ -32,7 +32,7 @@ summary(fe)
 phtest(fe,re2)
 
 #3 add time dummy
-fe2 <- plm(log(vio)~shall+incarc_rate+density+avginc+pop+pb1064+pw1064+pm1029+year, data = Guns, index = c("stateid", "year"), model="within")
+fe2 <- plm(log(vio)~shall+incarc_rate+density+avginc+pop+pb1064+pw1064+pm1029+factor(year), data = Guns, index = c("stateid", "year"), model="within")
 summary(fe2)
 
 #4 - rob
@@ -49,7 +49,7 @@ summary(fe_rob)
 
 phtest(fe_rob,re2_rob)
 
-fe2_rob <- plm(log(rob)~shall+incarc_rate+density+avginc+pop+pb1064+pw1064+pm1029+year, data = Guns, index = c("stateid", "year"), model="within")
+fe2_rob <- plm(log(rob)~shall+incarc_rate+density+avginc+pop+pb1064+pw1064+pm1029+factor(year), data = Guns, index = c("stateid", "year"), model="within")
 summary(fe2_rob)
 
 #4 - mur
@@ -66,7 +66,7 @@ summary(fe_mur)
 
 phtest(fe_mur,re2_mur)
 
-fe2_mur <- plm(log(mur)~shall+incarc_rate+density+avginc+pop+pb1064+pw1064+pm1029+year, data = Guns, index = c("stateid", "year"), model="within")
+fe2_mur <- plm(log(mur)~shall+incarc_rate+density+avginc+pop+pb1064+pw1064+pm1029+factor(year), data = Guns, index = c("stateid", "year"), model="within")
 summary(fe2_mur)
 
 
