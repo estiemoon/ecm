@@ -149,9 +149,10 @@ confidence_interval
 #(b) allowing for country fixed effects
 fe_q2 <- plm(dem_ind~log_gdppc, model = "within", index = c("country", "year"), data = id)
 summary(fe_q2)
+fe_se_q2 <- summary(fe_q2)$coefficients["log_gdppc", "Std. Error"]
 
-CI95l <- fe_q2$coefficients["log_gdppc"] +  qnorm(0.025, 0, 1) *  0.020805 
-CI95u <- fe_q2$coefficients["log_gdppc"] - qnorm(0.025, 0, 1) *  0.020805 
+CI95l <- fe_q2$coefficients["log_gdppc"] +  qnorm(0.025, 0, 1) *  fe_se_q2 
+CI95u <- fe_q2$coefficients["log_gdppc"] - qnorm(0.025, 0, 1) *  fe_se_q2 
 confidence_interval <- c(CI95l, CI95u)
 confidence_interval
 
